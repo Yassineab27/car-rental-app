@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
 import SearchBar from "./layout/SearhBar";
 import AddBtn from "./layout/AddBtn";
 import Loader from "./layout/Loader";
+import RentalList from "./components/rentalList";
 
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
@@ -12,11 +13,14 @@ const App = () => {
     M.AutoInit();
   });
   return (
-    <div className="App">
+    <Fragment>
       <SearchBar />
       <Loader />
-      <AddBtn />
-    </div>
+      <div className="container">
+        <AddBtn />
+        <RentalList />
+      </div>
+    </Fragment>
   );
 };
 
