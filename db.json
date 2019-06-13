@@ -1,0 +1,25 @@
+{
+  "rentals": [
+    {
+      "id": 1,
+      "name": "Yassine",
+      "car": "Honda",
+      "starting from": "May 2 2019",
+      "number of days": 10
+    },
+    {
+      "id": 2,
+      "name": "Tsotne",
+      "car": "Tesla",
+      "starting from": "May 5 2019",
+      "number of days": 13
+    },
+    {
+      "id": 3,
+      "name": "Abdou",
+      "car": "Fiat",
+      "starting from": "May 3 2019",
+      "number of days": 15
+    }
+  ]
+}
