@@ -4,22 +4,25 @@
       "id": 1,
       "name": "Yassine",
       "car": "Honda",
-      "starting from": "May 2 2019",
-      "number of days": 10
+      "date": "03-02-2019",
+      "days": 10,
+      "AllOptions": false
     },
     {
       "id": 2,
       "name": "Tsotne",
       "car": "Tesla",
-      "starting from": "May 5 2019",
-      "number of days": 13
+      "date": "03-03-2019",
+      "days": 13,
+      "AllOptions": true
     },
     {
       "id": 3,
       "name": "Abdou",
       "car": "Fiat",
-      "starting from": "May 3 2019",
-      "number of days": 15
+      "date": "03-04-2019",
+      "days": 15,
+      "AllOptions": false
     }
   ]
 }

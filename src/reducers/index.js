@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
+import rentalsReducer from "./rentalsReducer";
 
 const reducers = combineReducers({
-  test: () => "test"
+  rentalStore: rentalsReducer
 });
 
 export default reducers;

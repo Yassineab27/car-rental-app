@@ -1,8 +1,8 @@
 import React, { useEffect, Fragment } from "react";
-import SearchBar from "./layout/SearhBar";
+import SearchBar from "./layout/SearchBar";
 import AddBtn from "./layout/AddBtn";
-import Loader from "./layout/Loader";
-import RentalList from "./components/rentalList";
+import RentalList from "./components/RentalList";
+import AddRentalModal from "./components/AddRentalModal";
 
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
@@ -15,9 +15,9 @@ const App = () => {
   return (
     <Fragment>
       <SearchBar />
-      <Loader />
       <div className="container">
         <AddBtn />
+        <AddRentalModal />
         <RentalList />
       </div>
     </Fragment>
