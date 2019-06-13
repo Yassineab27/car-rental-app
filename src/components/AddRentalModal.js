@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 
+import { connect } from "react-redux";
+import { addRental } from "../actions";
+
 const AddRentalModal = props => {
   const [car, setCar] = useState("");
   const [allOptions, setAllOptions] = useState(false);
@@ -21,7 +24,9 @@ const AddRentalModal = props => {
         date: new Date()
       };
       console.log(newRental);
-      M.toast({ html: `Car Rented by ${firstName} ${lastName}` });
+      props.addRental(newRental);
+
+      M.toast({ html: `Car Rented by ${firstName} ${lastName}!` });
 
       // Clear Fields
       setFirstName("");
@@ -94,9 +99,14 @@ const AddRentalModal = props => {
               <option value="" disabled>
                 For how long you need this Car ?
               </option>
-              <option value="week">1 week</option>
-              <option value="2-weeks">2 weeks</option>
-              <option value="3-weeks">3 weeks</option>
+              <option value="1">1 week</option>
+              <option value="2">2 weeks</option>
+              <option value="3">3 weeks</option>
+              <option value="4">4 weeks</option>
+              <option value="5">5 weeks</option>
+              <option value="6">6 weeks</option>
+              <option value="7">7 weeks</option>
+              <option value="8">8 weeks</option>
             </select>
           </div>
         </div>
@@ -130,4 +140,7 @@ const AddRentalModal = props => {
   );
 };
 
-export default AddRentalModal;
+export default connect(
+  null,
+  { addRental }
+)(AddRentalModal);

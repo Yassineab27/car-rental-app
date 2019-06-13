@@ -5,6 +5,13 @@ const initialState = {
 
 const rentalsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "DELETE_RENTAL":
+      return {
+        ...state,
+        rentals: state.rentals.filter(rental => rental.id !== action.payload)
+      };
+    case "ADD_RENTAL":
+      return { ...state, rentals: [...state.rentals, action.payload] };
     case "GET_RENTALS":
       return { ...state, rentals: action.payload };
     default:

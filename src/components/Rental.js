@@ -1,21 +1,30 @@
 import React from "react";
 import Moment from "react-moment";
 
-const Rental = ({ rental }) => {
+import { connect } from "react-redux";
+import { deleteRantel } from "../actions";
+
+const Rental = ({ rental, deleteRantel }) => {
   return (
     <li className="collection-item">
       <div>
-        <a className={rental.AllOptions ? "red-text" : "blue-text"} href="#">
-          {rental.car}
+        <a className={rental.allOptions ? "red-text" : "blue-text"} href="#">
+          Customer #{rental.id}
         </a>
         <br />
         <span className="grey-text">
-          <span className="black-text">ID #{rental.id}</span> Ranted by{" "}
-          <span className="black-text">{rental.name}</span> for{" "}
-          <span className="black-text">{rental.days} days</span> on{" "}
+          <span className="black-text">{rental.car}</span> Ranted by{" "}
+          <span className="black-text">
+            {rental.firstName} {rental.lastName}
+          </span>{" "}
+          for <span className="black-text">{rental.weeks} week(s)</span> on{" "}
           <Moment format="MMMM Do YYYY, h:mm:ss a">{rental.date}</Moment>
         </span>
-        <a href="#" className="secondary-content">
+        <a
+          onClick={() => deleteRantel(rental.id)}
+          href="#"
+          className="secondary-content"
+        >
           <i className="material-icons red-text">delete</i>
         </a>
         <a href="#">
@@ -26,4 +35,7 @@ const Rental = ({ rental }) => {
   );
 };
 
-export default Rental;
+export default connect(
+  null,
+  { deleteRantel }
+)(Rental);
