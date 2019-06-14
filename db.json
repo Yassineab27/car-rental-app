@@ -3,29 +3,11 @@
     {
       "car": "Wolkswagen",
       "allOptions": true,
-      "firstName": "Harold",
-      "lastName": "Pendleton",
-      "weeks": "1",
-      "date": "2019-06-13T14:15:46.869Z",
-      "id": 1
-    },
-    {
-      "car": "Wolkswagen",
-      "allOptions": true,
-      "firstName": "Yassine",
-      "lastName": "Abdou",
-      "days": "3",
-      "date": "2019-06-13T14:21:12.047Z",
-      "id": 2
-    },
-    {
-      "car": "Renault",
-      "allOptions": true,
       "firstName": "Ali Alixender",
       "lastName": "QAMARI",
-      "days": "5",
-      "date": "2019-06-13T14:21:31.588Z",
-      "id": 3
+      "weeks": "1",
+      "date": "2019-06-14T10:50:04.330Z",
+      "id": 5
     }
   ]
 }

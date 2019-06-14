@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
 
 import { connect } from "react-redux";
-import { addRental } from "../actions";
+import { editRental } from "../actions";
 
-const AddRentalModal = props => {
+const EditRentalModal = ({ editRental, current }) => {
   const [car, setCar] = useState("");
   const [allOptions, setAllOptions] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [days, setDays] = useState("");
+  const [weeks, setWeeks] = useState("");
+
+  useEffect(() => {
+    if (current) {
+      setCar(current.car);
+      setAllOptions(current.allOptions);
+      setFirstName(current.firstName);
+      setLastName(current.lastName);
+      setWeeks(current.weeks);
+    }
+  }, [current]);
 
   const onSubmit = () => {
-    if (!firstName || !lastName || !car || !days) {
+    if (!firstName || !lastName || !car || !weeks) {
       M.toast({ html: "Please fill in all fields" });
     } else {
       const newRental = {
@@ -20,11 +30,11 @@ const AddRentalModal = props => {
         allOptions,
         firstName,
         lastName,
-        days,
+        weeks,
         date: new Date()
       };
       console.log(newRental);
-      props.addRental(newRental);
+      editRental(newRental);
 
       M.toast({ html: `Car Rented by ${firstName} ${lastName}!` });
 
@@ -32,19 +42,19 @@ const AddRentalModal = props => {
       setFirstName("");
       setLastName("");
       setCar("");
-      setDays("");
+      setWeeks("");
       setAllOptions(false);
     }
   };
 
   return (
     <div
-      id="add-rental-modal"
+      id="edit-rental-modal"
       className="modal"
       style={{ width: "75%", height: "75%" }}
     >
       <div className="modal-content">
-        <h4>Enter Information</h4>
+        <h4>Edit Your Information</h4>
         <div className="row">
           <div className="input-field">
             <input
@@ -53,9 +63,6 @@ const AddRentalModal = props => {
               value={firstName}
               onChange={e => setFirstName(e.target.value)}
             />
-            <label htmlFor="message" className="active">
-              First Name
-            </label>
           </div>
         </div>
         <div className="row">
@@ -66,9 +73,6 @@ const AddRentalModal = props => {
               value={lastName}
               onChange={e => setLastName(e.target.value)}
             />
-            <label htmlFor="message" className="active">
-              Last Name
-            </label>
           </div>
         </div>
         <div className="row">
@@ -91,10 +95,10 @@ const AddRentalModal = props => {
         <div className="row">
           <div className="input-field">
             <select
-              name="days"
-              value={days}
+              name="weeks"
+              value={weeks}
               className="browser-default"
-              onChange={e => setDays(e.target.value)}
+              onChange={e => setWeeks(e.target.value)}
             >
               <option value="" disabled>
                 For how long you need this Car ?
@@ -124,6 +128,28 @@ const AddRentalModal = props => {
                 <span>Do you want this car with all its Options ?</span>
               </label>
             </p>
+            <div style={{ display: "flex" }}>
+              {allOptions ? (
+                <div
+                  style={{
+                    borderBottom: "solid #ffc107 10px",
+                    width: "3rem",
+                    marginRight: "1rem"
+                  }}
+                >
+                  <p>Full Options</p>
+                </div>
+              ) : (
+                <div
+                  style={{
+                    borderBottom: "solid #4db6ac 10px",
+                    width: "3rem"
+                  }}
+                >
+                  <p>No Options</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -140,7 +166,11 @@ const AddRentalModal = props => {
   );
 };
 
+const mapStateToProps = store => {
+  return { current: store.rentalStore.current };
+};
+
 export default connect(
-  null,
-  { addRental }
-)(AddRentalModal);
+  mapStateToProps,
+  { editRental }
+)(EditRentalModal);

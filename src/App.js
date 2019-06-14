@@ -2,7 +2,8 @@ import React, { useEffect, Fragment } from "react";
 import SearchBar from "./layout/SearchBar";
 import AddBtn from "./layout/AddBtn";
 import RentalList from "./components/RentalList";
-import AddRentalModal from "./components/AddRentalModal";
+import AddRentalModal from "./modals/AddRentalModal";
+import EditRentalModal from "./modals/EditRentalModal";
 
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
@@ -18,6 +19,7 @@ const App = () => {
       <div className="container">
         <AddBtn />
         <AddRentalModal />
+        <EditRentalModal />
         <RentalList />
       </div>
     </Fragment>

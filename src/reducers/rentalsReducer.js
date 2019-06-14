@@ -5,6 +5,15 @@ const initialState = {
 
 const rentalsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "CURRENT_RENTAL":
+      return { ...state, current: action.payload };
+    case "EDIT_RENTAL":
+      return {
+        ...state,
+        rentals: state.rentals.map(rental =>
+          rental.id === action.payload.id ? action.payload : rental
+        )
+      };
     case "DELETE_RENTAL":
       return {
         ...state,

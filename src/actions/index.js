@@ -23,3 +23,18 @@ export const deleteRantel = id => {
     dispatch({ type: "DELETE_RENTAL", payload: id });
   };
 };
+
+export const editRental = (rental, form) => {
+  return async dispatch => {
+    const response = await fetchData.patch(`/rentals/${rental.id}`, form);
+
+    dispatch({ type: "EDIT_RENTAL", payload: response.data });
+  };
+};
+
+export const currentRental = rental => {
+  return {
+    type: "CURRENT_RENTAL",
+    payload: rental
+  };
+};

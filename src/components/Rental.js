@@ -2,32 +2,55 @@ import React from "react";
 import Moment from "react-moment";
 
 import { connect } from "react-redux";
-import { deleteRantel } from "../actions";
+import { deleteRantel, currentRental } from "../actions";
 
-const Rental = ({ rental, deleteRantel }) => {
+const Rental = ({ rental, deleteRantel, currentRental }) => {
+  const handleDelete = id => {
+    const confirm = window.confirm(
+      "This action can not be undone. Are you sure ?"
+    );
+    if (confirm) {
+      deleteRantel(id);
+    }
+  };
+
   return (
     <li className="collection-item">
       <div>
-        <a className={rental.allOptions ? "red-text" : "blue-text"} href="#">
-          Customer #{rental.id}
+        <a
+          onClick={() => currentRental(rental)}
+          style={{ textTransform: "uppercase" }}
+          className={
+            rental.allOptions
+              ? "amber lighten-2 black-text modal-trigger"
+              : "teal lighten-2 black-text modal-trigger"
+          }
+          href="#edit-rental-modal"
+        >
+          {rental.car}
         </a>
         <br />
         <span className="grey-text">
-          <span className="black-text">{rental.car}</span> Ranted by{" "}
+          Ranted by{" "}
           <span className="black-text">
             {rental.firstName} {rental.lastName}
           </span>{" "}
-          for <span className="black-text">{rental.weeks} week(s)</span> on{" "}
+          with <span className="red-text">ID #{rental.id}</span> for{" "}
+          <span className="black-text">{rental.weeks} week(s)</span> on{" "}
           <Moment format="MMMM Do YYYY, h:mm:ss a">{rental.date}</Moment>
         </span>
         <a
-          onClick={() => deleteRantel(rental.id)}
+          onClick={() => handleDelete(rental.id)}
           href="#"
           className="secondary-content"
         >
-          <i className="material-icons red-text">delete</i>
+          <i className="material-icons grey-text">delete</i>
         </a>
-        <a href="#">
+        <a
+          href="#edit-rental-modal"
+          onClick={() => currentRental(rental)}
+          className="modal-trigger"
+        >
           <i className="material-icons green-text">edit</i>
         </a>
       </div>
@@ -37,5 +60,5 @@ const Rental = ({ rental, deleteRantel }) => {
 
 export default connect(
   null,
-  { deleteRantel }
+  { deleteRantel, currentRental }
 )(Rental);
