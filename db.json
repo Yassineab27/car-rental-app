@@ -1,12 +1,12 @@
 {
   "rentals": [
     {
-      "car": "Wolkswagen",
+      "car": "Honda",
       "allOptions": true,
-      "firstName": "Ali Alixender",
-      "lastName": "QAMARI",
+      "firstName": "Yasska",
+      "lastName": "Yasyas",
       "weeks": "1",
-      "date": "2019-06-14T10:50:04.330Z",
+      "date": "2019-06-14T13:49:41.099Z",
       "id": 5
     }
   ]

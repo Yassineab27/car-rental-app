@@ -31,10 +31,11 @@ const EditRentalModal = ({ editRental, current }) => {
         firstName,
         lastName,
         weeks,
-        date: new Date()
+        date: new Date(),
+        id: current.id
       };
       console.log(newRental);
-      editRental(newRental);
+      editRental(current.id, newRental);
 
       M.toast({ html: `Car Rented by ${firstName} ${lastName}!` });
 

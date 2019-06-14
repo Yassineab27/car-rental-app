@@ -24,9 +24,9 @@ export const deleteRantel = id => {
   };
 };
 
-export const editRental = (rental, form) => {
+export const editRental = (id, rental) => {
   return async dispatch => {
-    const response = await fetchData.patch(`/rentals/${rental.id}`, form);
+    const response = await fetchData.patch(`/rentals/${id}`, rental);
 
     dispatch({ type: "EDIT_RENTAL", payload: response.data });
   };
@@ -36,5 +36,13 @@ export const currentRental = rental => {
   return {
     type: "CURRENT_RENTAL",
     payload: rental
+  };
+};
+
+export const searchQuery = search => {
+  return async dispatch => {
+    const response = await fetchData.get(`/rentals?q=${search}`);
+
+    dispatch({ type: "SEARCH_QUERY", payload: response.data });
   };
 };

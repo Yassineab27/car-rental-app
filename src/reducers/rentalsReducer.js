@@ -5,6 +5,8 @@ const initialState = {
 
 const rentalsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "SEARCH_QUERY":
+      return { ...state, rentals: action.payload };
     case "CURRENT_RENTAL":
       return { ...state, current: action.payload };
     case "EDIT_RENTAL":
