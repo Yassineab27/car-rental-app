@@ -37,7 +37,7 @@ const EditRentalModal = ({ editRental, current }) => {
       console.log(newRental);
       editRental(current.id, newRental);
 
-      M.toast({ html: `Car Rented by ${firstName} ${lastName}!` });
+      M.toast({ html: `Updated Successfuly by ${firstName} ${lastName}!` });
 
       // Clear Fields
       setFirstName("");

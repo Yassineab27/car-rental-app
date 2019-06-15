@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
-const AddCarModal = () => {
+import { connect } from "react-redux";
+import { addCar } from "../actions";
+
+const AddCarModal = props => {
   const [carName, setCarName] = useState("");
   const [model, setModel] = useState("");
 
@@ -10,6 +13,10 @@ const AddCarModal = () => {
       model
     };
     console.log(newCar);
+    props.addCar(newCar);
+
+    setCarName("");
+    setModel("");
   };
 
   return (
@@ -62,4 +69,7 @@ const AddCarModal = () => {
   );
 };
 
-export default AddCarModal;
+export default connect(
+  null,
+  { addCar }
+)(AddCarModal);

@@ -46,3 +46,27 @@ export const searchQuery = search => {
     dispatch({ type: "SEARCH_QUERY", payload: response.data });
   };
 };
+
+export const addCar = car => {
+  return async dispatch => {
+    const response = await fetchData.post(`/cars`, car);
+
+    dispatch({ type: "ADD_CAR", payload: response.data });
+  };
+};
+
+export const deleteCar = id => {
+  return async dispatch => {
+    await fetchData.delete(`/cars/${id}`);
+
+    dispatch({ type: "DELETE_CAR", payload: id });
+  };
+};
+
+export const getCars = () => {
+  return async dispatch => {
+    const response = await fetchData.get("/cars");
+
+    dispatch({ type: "GET_CARS", payload: response.data });
+  };
+};

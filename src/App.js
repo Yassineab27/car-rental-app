@@ -5,6 +5,7 @@ import RentalList from "./components/RentalList";
 import AddRentalModal from "./modals/AddRentalModal";
 import EditRentalModal from "./modals/EditRentalModal";
 import AddCarModal from "./modals/AddCarModal";
+import CarsListModal from "./modals/CarsListModal";
 
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
@@ -22,6 +23,7 @@ const App = () => {
         <AddRentalModal />
         <EditRentalModal />
         <AddCarModal />
+        <CarsListModal />
         <RentalList />
       </div>
     </Fragment>

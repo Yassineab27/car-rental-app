@@ -1,13 +1,23 @@
 {
   "rentals": [
     {
-      "car": "Honda",
+      "car": "Wolkswagen",
       "allOptions": true,
-      "firstName": "Yasska",
-      "lastName": "Yasyas",
-      "weeks": "1",
-      "date": "2019-06-14T13:49:41.099Z",
+      "firstName": "Yassine",
+      "lastName": "Abdou",
+      "weeks": "3",
+      "date": "2019-06-15T12:44:31.161Z",
       "id": 5
+    },
+    {
+      "car": "Renault",
+      "allOptions": false,
+      "firstName": "Harold",
+      "lastName": "Pendleton",
+      "weeks": "1",
+      "date": "2019-06-15T12:46:03.620Z",
+      "id": 6
     }
-  ]
+  ],
+  "cars": []
 }
