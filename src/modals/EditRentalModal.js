@@ -4,7 +4,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import { connect } from "react-redux";
 import { editRental } from "../actions";
 
-const EditRentalModal = ({ editRental, current }) => {
+const EditRentalModal = ({ editRental, current, cars }) => {
   const [car, setCar] = useState("");
   const [allOptions, setAllOptions] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -87,9 +87,11 @@ const EditRentalModal = ({ editRental, current }) => {
               <option value="" disabled>
                 Select the Car you want
               </option>
-              <option value="Honda">Honda Civic 2018</option>
-              <option value="Wolkswagen">Wolkswagen Polo 2018</option>
-              <option value="Renault">Renault Clio 2017</option>
+              {cars.map(car => (
+                <option key={car.id} value={car.carName}>
+                  {car.carName} - {car.model}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -168,7 +170,7 @@ const EditRentalModal = ({ editRental, current }) => {
 };
 
 const mapStateToProps = store => {
-  return { current: store.rentalStore.current };
+  return { current: store.rentalStore.current, cars: store.carStore.cars };
 };
 
 export default connect(
