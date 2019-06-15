@@ -5,10 +5,9 @@ import { searchQuery } from "../actions";
 const SearchBar = props => {
   const [search, setSearch] = useState("");
 
-  const handleSearch = search => {
-    setSearch(search);
+  useEffect(() => {
     props.searchQuery(search);
-  };
+  }, [search]);
 
   return (
     <nav style={{ marginBottom: "30 px" }}>
@@ -16,15 +15,18 @@ const SearchBar = props => {
         <form>
           <div className="input-field">
             <input
-              onChange={e => handleSearch(e.target.value)}
+              onChange={e => setSearch(e.target.value)}
               id="search"
               type="search"
+              value={search}
               placeholder="Search Rentals"
             />
             <label className="label-icon" htmlFor="search">
               <i className="material-icons">search</i>
             </label>
-            <i className="material-icons">close</i>
+            <i onClick={() => setSearch("")} className="material-icons">
+              close
+            </i>
           </div>
         </form>
       </div>
