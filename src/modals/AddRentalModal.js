@@ -82,9 +82,11 @@ const AddRentalModal = props => {
               <option value="" disabled>
                 Select the Car you want
               </option>
-              <option value="Honda">Honda Civic 2018</option>
-              <option value="Wolkswagen">Wolkswagen Polo 2018</option>
-              <option value="Renault">Renault Clio 2017</option>
+              {props.cars.map(car => (
+                <option key={car.id} value={car.carName}>
+                  {car.carName} - {car.model}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -162,7 +164,11 @@ const AddRentalModal = props => {
   );
 };
 
+const mapStateToProps = store => {
+  return { cars: store.carStore.cars };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { addRental }
 )(AddRentalModal);

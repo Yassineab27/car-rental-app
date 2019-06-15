@@ -11,7 +11,7 @@ const SearchBar = props => {
 
   return (
     <nav style={{ marginBottom: "30 px" }}>
-      <div className="nav-wrapper">
+      <div className="nav-wrapper blue">
         <form>
           <div className="input-field">
             <input

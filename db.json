@@ -1,23 +1,65 @@
 {
   "rentals": [
     {
-      "car": "Wolkswagen",
+      "car": "Mazda",
       "allOptions": true,
-      "firstName": "Yassine",
-      "lastName": "Abdou",
-      "weeks": "3",
-      "date": "2019-06-15T12:44:31.161Z",
-      "id": 5
-    },
-    {
-      "car": "Renault",
-      "allOptions": false,
       "firstName": "Harold",
       "lastName": "Pendleton",
       "weeks": "1",
-      "date": "2019-06-15T12:46:03.620Z",
-      "id": 6
+      "date": "2019-06-15T16:42:05.740Z",
+      "id": 1
     }
   ],
-  "cars": []
+  "cars": [
+    {
+      "carName": "Mazda",
+      "model": "LaPuta",
+      "id": 1
+    },
+    {
+      "carName": "Skoda",
+      "model": "Laura",
+      "id": 2
+    },
+    {
+      "carName": "Mitsubishi",
+      "model": "Pajero",
+      "id": 3
+    },
+    {
+      "carName": "Honda",
+      "model": "Fitta",
+      "id": 4
+    },
+    {
+      "carName": "Nissan",
+      "model": "Moco",
+      "id": 5
+    },
+    {
+      "carName": "Buick",
+      "model": "LaCrosse",
+      "id": 6
+    },
+    {
+      "carName": "Ford",
+      "model": "Pinto",
+      "id": 8
+    },
+    {
+      "carName": "Hyundai",
+      "model": "Santa Fe",
+      "id": 9
+    },
+    {
+      "carName": "Lamborghini",
+      "model": "Reventon",
+      "id": 10
+    },
+    {
+      "carName": "Toyota",
+      "model": "MR2",
+      "id": 11
+    }
+  ]
 }

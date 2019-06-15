@@ -23,7 +23,7 @@ const AddCarModal = props => {
     <div
       id="add-car-modal"
       className="modal"
-      style={{ width: "75%", height: "75%" }}
+      style={{ width: "50%", height: "50%" }}
     >
       <div className="modal-content">
         <h4>

@@ -13,17 +13,19 @@ const CarsListModal = props => {
   const carList = props.cars.length ? (
     props.cars.map(car => <Car key={car.id} car={car} />)
   ) : (
-    <h4>0 Cars Available at the moment..</h4>
+    <h6>0 Cars Available at the moment..</h6>
   );
 
   return (
     <div
       id="car-list-modal"
       className="modal"
-      style={{ width: "50%", height: "50%" }}
+      style={{ width: "65%", height: "65%" }}
     >
       <div className="modal-content">
-        <h2 className="center">Available Cars</h2>
+        <h4 className="center" style={{ color: "#2196f3" }}>
+          Available <i className="fas fa-car" />
+        </h4>
         <ul className="collection">{carList}</ul>
       </div>
     </div>
