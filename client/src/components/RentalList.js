@@ -35,8 +35,7 @@ const RentalList = props => {
 
 const mapStateToProps = state => {
   return {
-    rentals: state.rentalStore.rentals,
-    isLoading: state.rentalStore.isLoading
+    rentals: state.rentalStore.rentals
   };
 };
 
