@@ -1,8 +1,8 @@
-import fetchData from "../apis/fetchData";
+const axios = require("axios");
 
 export const getRentals = () => {
   return async dispatch => {
-    const response = await fetchData.get("/rentals");
+    const response = await axios.get("/rentals");
 
     dispatch({ type: "GET_RENTALS", payload: response.data });
   };
@@ -10,7 +10,7 @@ export const getRentals = () => {
 
 export const addRental = rental => {
   return async dispatch => {
-    const response = await fetchData.post("/rentals", rental);
+    const response = await axios.post("/rentals", rental);
 
     dispatch({ type: "ADD_RENTAL", payload: response.data });
   };
@@ -18,7 +18,7 @@ export const addRental = rental => {
 
 export const deleteRantel = id => {
   return async dispatch => {
-    await fetchData.delete(`/rentals/${id}`);
+    await axios.delete(`/rentals/${id}`);
 
     dispatch({ type: "DELETE_RENTAL", payload: id });
   };
@@ -26,10 +26,14 @@ export const deleteRantel = id => {
 
 export const editRental = (id, rental) => {
   return async dispatch => {
-    const response = await fetchData.patch(`/rentals/${id}`, rental);
+    const response = await axios.patch(`/rentals/${id}`, rental);
 
     dispatch({ type: "EDIT_RENTAL", payload: response.data });
   };
+};
+
+export const filterRentals = search => {
+  return { type: "SEARCH_RENTAL", payload: search };
 };
 
 export const currentRental = rental => {
@@ -39,17 +43,9 @@ export const currentRental = rental => {
   };
 };
 
-export const searchQuery = search => {
-  return async dispatch => {
-    const response = await fetchData.get(`/rentals?q=${search}`);
-
-    dispatch({ type: "SEARCH_QUERY", payload: response.data });
-  };
-};
-
 export const addCar = car => {
   return async dispatch => {
-    const response = await fetchData.post(`/cars`, car);
+    const response = await axios.post("/cars", car);
 
     dispatch({ type: "ADD_CAR", payload: response.data });
   };
@@ -57,7 +53,7 @@ export const addCar = car => {
 
 export const deleteCar = id => {
   return async dispatch => {
-    await fetchData.delete(`/cars/${id}`);
+    await axios.delete(`/cars/${id}`);
 
     dispatch({ type: "DELETE_CAR", payload: id });
   };
@@ -65,7 +61,7 @@ export const deleteCar = id => {
 
 export const getCars = () => {
   return async dispatch => {
-    const response = await fetchData.get("/cars");
+    const response = await axios.get("/cars");
 
     dispatch({ type: "GET_CARS", payload: response.data });
   };

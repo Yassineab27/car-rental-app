@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { searchQuery } from "../actions";
+import { filterRentals } from "../actions";
 
 const SearchBar = props => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    props.searchQuery(search);
+    props.filterRentals(search);
   }, [search]);
 
   return (
@@ -36,5 +36,5 @@ const SearchBar = props => {
 
 export default connect(
   null,
-  { searchQuery }
+  { filterRentals }
 )(SearchBar);

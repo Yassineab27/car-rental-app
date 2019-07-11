@@ -35,12 +35,12 @@ const Rental = ({ rental, deleteRantel, currentRental }) => {
           <span className="black-text">
             {rental.firstName} {rental.lastName}
           </span>{" "}
-          with <span className="red-text">ID #{rental.id}</span> for{" "}
+          with <span className="red-text">ID #{rental._id}</span> for{" "}
           <span className="black-text">{rental.weeks} week(s)</span> on{" "}
-          <Moment format="MMMM Do YYYY, h:mm:ss a">{rental.date}</Moment>
+          <Moment format="MMMM Do YYYY, h:mm:ss a">{rental.createdAt}</Moment>
         </span>
         <a
-          onClick={() => handleDelete(rental.id)}
+          onClick={() => handleDelete(rental._id)}
           href="#"
           className="secondary-content"
         >

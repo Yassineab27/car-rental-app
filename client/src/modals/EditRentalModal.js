@@ -30,12 +30,10 @@ const EditRentalModal = ({ editRental, current, cars }) => {
         allOptions,
         firstName,
         lastName,
-        weeks,
-        date: new Date(),
-        id: current.id
+        weeks
       };
       console.log(newRental);
-      editRental(current.id, newRental);
+      editRental(current._id, newRental);
 
       M.toast({ html: `Updated Successfuly by ${firstName} ${lastName}!` });
 
@@ -88,7 +86,7 @@ const EditRentalModal = ({ editRental, current, cars }) => {
                 Select the Car you want
               </option>
               {cars.map(car => (
-                <option key={car.id} value={car.carName}>
+                <option key={car._id} value={car.carName}>
                   {car.carName} - {car.model}
                 </option>
               ))}
@@ -170,7 +168,10 @@ const EditRentalModal = ({ editRental, current, cars }) => {
 };
 
 const mapStateToProps = store => {
-  return { current: store.rentalStore.current, cars: store.carStore.cars };
+  return {
+    current: store.rentalStore.current,
+    cars: store.carStore.cars
+  };
 };
 
 export default connect(

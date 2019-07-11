@@ -11,7 +11,7 @@ const CarsListModal = props => {
 
   console.log(props.cars);
   const carList = props.cars.length ? (
-    props.cars.map(car => <Car key={car.id} car={car} />)
+    props.cars.map(car => <Car key={car._id} car={car} />)
   ) : (
     <h6>0 Cars Available at the moment..</h6>
   );
@@ -24,7 +24,7 @@ const CarsListModal = props => {
     >
       <div className="modal-content">
         <h4 className="center" style={{ color: "#2196f3" }}>
-          Available <i className="fas fa-car" />
+          {props.cars.length} Cars Available <i className="fas fa-car" />
         </h4>
         <ul className="collection">{carList}</ul>
       </div>

@@ -20,8 +20,7 @@ const AddRentalModal = props => {
         allOptions,
         firstName,
         lastName,
-        weeks,
-        date: new Date()
+        weeks
       };
       console.log(newRental);
       props.addRental(newRental);
@@ -83,7 +82,7 @@ const AddRentalModal = props => {
                 Select the Car you want
               </option>
               {props.cars.map(car => (
-                <option key={car.id} value={car.carName}>
+                <option key={car._id} value={car.carName}>
                   {car.carName} - {car.model}
                 </option>
               ))}

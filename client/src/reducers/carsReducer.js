@@ -7,7 +7,7 @@ const carsReducer = (state = initialState, action) => {
     case "DELETE_CAR":
       return {
         ...state,
-        cars: state.cars.filter(car => car.id !== action.payload)
+        cars: state.cars.filter(car => car._id !== action.payload)
       };
     case "GET_CARS":
       return { ...state, cars: action.payload };

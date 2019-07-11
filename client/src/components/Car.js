@@ -20,7 +20,7 @@ const Car = ({ car, deleteCar }) => {
         {car.carName} - {car.model}
         <a
           href="#"
-          onClick={() => handleDelete(car.id)}
+          onClick={() => handleDelete(car._id)}
           className="secondary-content"
         >
           <i className="material-icons">delete</i>
