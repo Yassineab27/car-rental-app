@@ -19,4 +19,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/rentals", rentalRouter);
 app.use("/cars", carRouter);
 
+// Serve Statics in prod
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.join(__dirname, "../client/build/index.html"))
+  );
+}
+
 module.exports = app;
